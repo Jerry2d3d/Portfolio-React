@@ -1,0 +1,59 @@
+// Register.module.scss
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.registerForm {
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+.formGroup {
+  margin-bottom: $spacing-lg;
+
+  label {
+    @include label-base;
+  }
+
+  input {
+    @include input-base;
+  }
+
+  small {
+    display: block;
+    margin-top: $spacing-xs;
+    font-size: $font-size-xs;
+  }
+}
+
+.error {
+  background-color: rgba($error, 0.1);
+  border: $border-width solid $error-light;
+  color: $error-dark;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-md;
+  margin-bottom: $spacing-lg;
+  font-size: $font-size-sm;
+}
+
+.submitButton {
+  @include button-primary;
+  width: 100%;
+  font-size: $font-size-base;
+  margin-top: $spacing-md;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.link {
+  color: var(--primary);
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

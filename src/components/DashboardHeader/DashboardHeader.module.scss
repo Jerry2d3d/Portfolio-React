@@ -1,0 +1,24 @@
+@import '@/styles/variables';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-lg;
+}
+
+.logoutButton {
+  padding: $spacing-sm $spacing-md;
+  background: var(--danger-color);
+  color: var(--text-on-primary);
+  border: none;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: var(--danger-hover);
+  }
+}

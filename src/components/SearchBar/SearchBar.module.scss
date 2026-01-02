@@ -1,0 +1,21 @@
+@import '@/styles/variables';
+
+.controls {
+  margin-bottom: $spacing-lg;
+}
+
+.searchInput {
+  width: 100%;
+  max-width: 400px;
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid var(--border-color);
+  border-radius: $border-radius-sm;
+  font-size: $font-size-base;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+
+  &:focus {
+    outline: none;
+    border-color: var(--primary-color);
+  }
+}

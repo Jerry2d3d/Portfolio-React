@@ -1,0 +1,17 @@
+@import '@/styles/variables';
+
+.welcomeCard {
+  padding: $spacing-lg;
+  background: var(--bg-secondary);
+  border-radius: $border-radius-md;
+  margin-bottom: $spacing-lg;
+
+  h2 {
+    margin: 0 0 $spacing-sm;
+    color: var(--text-primary);
+  }
+
+  p {
+    margin: 0;
+  }
+}

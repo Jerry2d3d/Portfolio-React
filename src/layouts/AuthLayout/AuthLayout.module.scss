@@ -1,0 +1,47 @@
+// AuthLayout.module.scss
+// Styles for authentication pages (login, register)
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.authLayout {
+  @include flex-center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+  padding: $spacing-lg;
+}
+
+.authContainer {
+  width: 100%;
+  max-width: 450px;
+}
+
+.authHeader {
+  text-align: center;
+  margin-bottom: $spacing-xl;
+}
+
+.logo {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: var(--primary);
+  margin: 0;
+}
+
+.authContent {
+  @include card;
+  background-color: var(--bg-primary);
+
+  @include respond-to(md) {
+    padding: $spacing-2xl;
+  }
+}
+
+.authFooter {
+  margin-top: $spacing-lg;
+  text-align: center;
+
+  p {
+    margin: 0;
+    font-size: $font-size-sm;
+  }
+}

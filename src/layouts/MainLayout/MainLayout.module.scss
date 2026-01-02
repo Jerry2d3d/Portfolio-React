@@ -1,0 +1,68 @@
+// MainLayout.module.scss
+// Styles for the main application layout
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.mainLayout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: var(--bg-primary);
+  border-bottom: $border-width solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: $z-index-sticky;
+  box-shadow: var(--shadow-sm);
+}
+
+.nav {
+  @include flex-between;
+  height: $header-height;
+}
+
+.logo {
+  h2 {
+    font-size: $font-size-xl;
+    color: var(--primary);
+    margin: 0;
+  }
+}
+
+.navLinks {
+  @include flex-center;
+  gap: $spacing-lg;
+
+  a {
+    color: var(--text-secondary);
+    font-weight: $font-weight-medium;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+}
+
+.main {
+  flex: 1;
+  padding: $spacing-lg 0;
+
+  @include respond-to(md) {
+    padding: $spacing-xl 0;
+  }
+}
+
+.footer {
+  background-color: var(--bg-secondary);
+  border-top: $border-width solid var(--border-color);
+  padding: $spacing-lg 0;
+  margin-top: auto;
+
+  p {
+    margin: 0;
+    font-size: $font-size-sm;
+  }
+}

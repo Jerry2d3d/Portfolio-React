@@ -1,0 +1,25 @@
+@import '@/styles/variables';
+
+.stageCard {
+  padding: $spacing-lg;
+  background: var(--bg-secondary);
+  border-radius: $border-radius-md;
+  margin-top: $spacing-xl;
+
+  h4 {
+    margin: 0 0 $spacing-sm;
+    color: var(--text-primary);
+  }
+
+  p {
+    margin: 0;
+  }
+
+  ul {
+    color: var(--text-secondary);
+
+    li {
+      margin-bottom: $spacing-xs;
+    }
+  }
+}

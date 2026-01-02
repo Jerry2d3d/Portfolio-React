@@ -1,0 +1,71 @@
+# .aiignore
+#
+# AI Ignore File - Project-Specific AI Rules and Configurations
+# Similar to .gitignore but for AI/Claude Code configurations
+#
+# Files and directories listed here will NEVER be synced to the boilerplate
+# or shared with other projects. They are PROJECT-SPECIFIC ONLY.
+#
+# Usage: When you say "this is for this project only" or "don't sync this",
+# those rules/files get added here.
+#
+# Examples of what belongs in .aiignore:
+# - Project-specific business rules
+# - Client-specific requirements
+# - Custom agents for this project only
+# - Sensitive project context
+# - Domain-specific configurations
+#
+
+# ============================================================================
+# PROJECT-SPECIFIC CONFIGURATIONS (Never sync these)
+# ============================================================================
+
+# Project-specific rules and context
+.claude/project-specific/
+.claude/local/
+.claude/custom/
+
+# Project-only agents (custom to this project)
+.claude/agents/project-*.md
+.claude/agents/local-*.md
+
+# Project-only documentation
+.claude/docs/project-specific/
+.claude/docs/client/
+.claude/docs/business-rules/
+
+# Project-specific personas
+.claude/personas/project-*.md
+
+# Local AI configuration overrides
+.claude/local-config.json
+.claude/project-overrides.json
+
+# ============================================================================
+# EXAMPLES (Uncomment and customize for your project)
+# ============================================================================
+
+# Example: E-commerce specific rules
+# .claude/docs/ecommerce-rules.md
+
+# Example: Client-specific requirements
+# .claude/docs/client-acme-corp.md
+
+# Example: Custom inventory agent (project-only)
+# .claude/agents/inventory-manager.md
+
+# Example: Business logic documentation
+# .claude/docs/business-rules/
+
+# ============================================================================
+# ADD YOUR PROJECT-SPECIFIC PATTERNS BELOW
+# ============================================================================
+
+# Figma MCP Integration (Portfolio specific)
+# This project uses Figma designs for portfolio components
+.mcp.json
+.claude/docs/project-specific/figma-integration.md
+
+# Portfolio-specific rules and branding
+# (Add more as the project evolves)

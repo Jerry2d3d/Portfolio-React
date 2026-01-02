@@ -1,0 +1,92 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.navigation {
+  width: 100%;
+  border-bottom: 1px solid var(--border-light);
+  background: var(--bg-primary);
+  position: sticky;
+  top: 0;
+  z-index: $z-index-sticky;
+}
+
+.container {
+  max-width: $container-xl;
+  margin: 0 auto;
+  padding: $spacing-md $spacing-lg;
+  @include flex-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: var(--primary-hover);
+  }
+}
+
+.actions {
+  display: flex;
+  gap: $spacing-md;
+  align-items: center;
+}
+
+.loginButton {
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+.getStartedButton {
+  padding: $spacing-sm $spacing-lg;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  background: var(--primary-color);
+  color: var(--text-on-primary);
+  text-decoration: none;
+  border-radius: $border-radius-sm;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Responsive
+@media (max-width: $breakpoint-sm) {
+  .container {
+    padding: $spacing-sm $spacing-md;
+  }
+
+  .logo {
+    font-size: $font-size-lg;
+  }
+
+  .actions {
+    gap: $spacing-sm;
+  }
+
+  .loginButton,
+  .getStartedButton {
+    font-size: $font-size-sm;
+    padding: $spacing-xs $spacing-sm;
+  }
+}

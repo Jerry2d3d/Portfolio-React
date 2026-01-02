@@ -1,0 +1,185 @@
+// _themes.scss
+// Theme Definitions for QR Code Management App
+// Supports light and dark modes
+
+@use './variables' as *;
+
+// ============================================
+// LIGHT THEME (DEFAULT)
+// ============================================
+
+:root,
+[data-theme='light'] {
+  // Background
+  --bg-primary: #{$white};
+  --bg-secondary: #{$gray-50};
+  --bg-tertiary: #{$gray-100};
+
+  // Text
+  --text-primary: #{$gray-900};
+  --text-secondary: #{$gray-600};
+  --text-tertiary: #{$gray-500};
+
+  // Borders
+  --border-color: #{$gray-300};
+  --border-light: #{$gray-200};
+  --border-dark: #{$gray-400};
+
+  // Brand Colors
+  --primary: #{$primary-color};
+  --primary-hover: #{$primary-hover};
+  --secondary: #{$secondary-color};
+  --secondary-hover: #{$secondary-hover};
+
+  // Semantic
+  --success: #{$success};
+  --error: #{$error};
+  --warning: #{$warning};
+  --info: #{$info};
+
+  // Shadows
+  --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg};
+  --shadow-xl: #{$shadow-xl};
+}
+
+// ============================================
+// DARK THEME
+// ============================================
+
+[data-theme='dark'] {
+  // Background
+  --bg-primary: #{$gray-900};
+  --bg-secondary: #{$gray-800};
+  --bg-tertiary: #{$gray-700};
+
+  // Text
+  --text-primary: #{$gray-50};
+  --text-secondary: #{$gray-300};
+  --text-tertiary: #{$gray-400};
+
+  // Borders
+  --border-color: #{$gray-600};
+  --border-light: #{$gray-700};
+  --border-dark: #{$gray-500};
+
+  // Brand Colors (slightly adjusted for dark mode)
+  --primary: #{$primary-light};
+  --primary-hover: #{$primary-color};
+  --secondary: #{$secondary-light};
+  --secondary-hover: #{$secondary-color};
+
+  // Semantic (adjusted for dark mode)
+  --success: #{$success-light};
+  --error: #{$error-light};
+  --warning: #{$warning-light};
+  --info: #{$info-light};
+
+  // Shadows (more subtle in dark mode)
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+}
+
+// ============================================
+// THEME-AWARE CLASSES
+// ============================================
+
+// Background classes
+.bg-primary {
+  background-color: var(--bg-primary);
+}
+
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.bg-tertiary {
+  background-color: var(--bg-tertiary);
+}
+
+// Text classes
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+// Border classes
+.border {
+  border: $border-width solid var(--border-color);
+}
+
+.border-light {
+  border: $border-width solid var(--border-light);
+}
+
+.border-dark {
+  border: $border-width solid var(--border-dark);
+}
+
+// ============================================
+// THEME UTILITIES
+// ============================================
+
+// Transition for smooth theme switching
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: $transition-fast;
+  transition-timing-function: ease-in-out;
+}
+
+// Disable transitions on elements that shouldn't animate
+a, button, input, textarea, select {
+  transition-property: background-color, border-color, color, box-shadow, transform;
+}
+
+// ============================================
+// PREFERS COLOR SCHEME (System Theme)
+// ============================================
+
+// Automatically switch to dark theme if user prefers dark mode
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    // Background
+    --bg-primary: #{$gray-900};
+    --bg-secondary: #{$gray-800};
+    --bg-tertiary: #{$gray-700};
+
+    // Text
+    --text-primary: #{$gray-50};
+    --text-secondary: #{$gray-300};
+    --text-tertiary: #{$gray-400};
+
+    // Borders
+    --border-color: #{$gray-600};
+    --border-light: #{$gray-700};
+    --border-dark: #{$gray-500};
+
+    // Brand Colors
+    --primary: #{$primary-light};
+    --primary-hover: #{$primary-color};
+    --secondary: #{$secondary-light};
+    --secondary-hover: #{$secondary-color};
+
+    // Semantic
+    --success: #{$success-light};
+    --error: #{$error-light};
+    --warning: #{$warning-light};
+    --info: #{$info-light};
+
+    // Shadows
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+  }
+}

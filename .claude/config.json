@@ -1,0 +1,9 @@
+{
+  "framework": "react-nextjs",
+  "initialized": true,
+  "version": "1.0.0",
+  "templateSystem": {
+    "enabled": true,
+    "description": "Multi-framework template system with dynamic agent personas"
+  }
+}
