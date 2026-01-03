@@ -183,9 +183,24 @@ $transition-slow: 500ms ease-in-out;
 // BREAKPOINTS
 // ============================================
 
+// Legacy breakpoints (keep for backward compatibility)
 $breakpoint-xs: 480px;
 $breakpoint-sm: 640px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 1024px;
 $breakpoint-xl: 1280px;
 $breakpoint-2xl: 1536px;
+
+// Media Query Breakpoints Map
+// Usage: @include media-query(phone) { ... }
+$phone-media-query-max-width: 767px;
+$tablet-media-query-min-width: 768px;
+$tablet-media-query-max-width: 1023px;
+$desktop-media-query-min-width: 1024px;
+
+$breakpoints: (
+  "phone": $phone-media-query-max-width,
+  "tablet-min": $tablet-media-query-min-width,
+  "tablet-max": $tablet-media-query-max-width,
+  "desktop": $desktop-media-query-min-width,
+);

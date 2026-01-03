@@ -32,6 +32,32 @@
   }
 }
 
+// Media Query Mixin - Simplified responsive design
+// Usage: @include media-query(phone) { ... }
+// Options: phone, tablet, desktop, both
+@mixin media-query($media-type) {
+  @if $media-type == phone {
+    @media screen and (max-width: map-get($breakpoints, "phone")) {
+      @content;
+    }
+  } @else if $media-type == tablet {
+    @media screen and (min-width: map-get($breakpoints, "tablet-min")) and (max-width: map-get($breakpoints, "tablet-max")) {
+      @content;
+    }
+  } @else if $media-type == desktop {
+    @media screen and (min-width: map-get($breakpoints, "desktop")) {
+      @content;
+    }
+  } @else if $media-type == both {
+    @media screen and (max-width: map-get($breakpoints, "phone")) {
+      @content;
+    }
+    @media screen and (min-width: map-get($breakpoints, "tablet-min")) and (max-width: map-get($breakpoints, "tablet-max")) {
+      @content;
+    }
+  }
+}
+
 // ============================================
 // FLEXBOX UTILITIES
 // ============================================
