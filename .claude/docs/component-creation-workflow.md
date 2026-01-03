@@ -2,23 +2,29 @@
 
 ## RULE: When User Requests a New Component
 
-**ALWAYS present these two options to the user:**
+**ALWAYS present these three options to the user:**
 
 ```
-"I can help you create this component!
+"I can help you create a new component!
 
-Do you want to make it from:
+Which approach would you like to use?
 
-1. Figma and User Story
-   (I'll fetch your Figma design and create a pixel-perfect component)
+1. Figma Design
+   - Provide Figma URL, frame name, and user story
+   - I'll create a pixel-perfect component from your design
 
-2. Just tell me what you want
-   (Describe the component and I'll build it from scratch)
+2. Reference Website
+   - Provide a URL to an existing website/component
+   - I'll recreate it for your portfolio
 
-Which approach would you prefer?"
+3. Description Only
+   - Just describe what you want
+   - I'll build it from scratch based on your requirements
+
+Which option would you prefer?"
 ```
 
-**DO NOT skip this step. DO NOT assume which approach to use.**
+**DO NOT skip this step. DO NOT assume which approach to use. ALWAYS present all 3 options.**
 
 ---
 
@@ -56,7 +62,78 @@ Which approach would you prefer?"
 
 ---
 
-## Option 2: Just Tell Me What You Want
+## Option 2: Reference Website
+
+### When User Chooses This:
+
+**You Say:**
+```
+"Great! Please provide:
+1. URL of the reference website/component
+2. Specific component or section you want to recreate
+3. Any modifications or customizations you'd like
+4. User story describing how it should function (optional)
+```
+
+### Then Follow:
+
+**Website Reference Workflow:**
+
+1. **Analyze Reference:**
+   - Fetch and analyze the reference URL
+   - Identify design patterns, colors, spacing, typography
+   - Note interactive behaviors and animations
+   - Extract reusable patterns
+
+2. **Create Feature Branch:**
+   ```bash
+   git checkout -b feature/component-name
+   ```
+
+3. **Recreate Component:**
+   - Match visual design from reference
+   - Adapt to project's design system
+   - Implement using SCSS modules
+   - Add TypeScript types for props
+   - Ensure responsive behavior
+
+4. **Create Component Structure:**
+   ```
+   src/components/ComponentName/
+   ├── ComponentName.tsx
+   ├── ComponentName.module.scss
+   └── index.ts
+   ```
+
+5. **Create Test Page:**
+   ```
+   src/app/test-components/component-name/page.tsx
+   ```
+
+6. **Document:**
+   - Add reference URL in component comments
+   - Document any deviations from reference
+   - Note customizations made
+
+7. **Commit:**
+   ```bash
+   git add .
+   git commit -m "Add ComponentName based on [reference URL]
+
+   Recreated from: [URL]
+   Customizations: [List any changes]
+   "
+   ```
+
+**Output:**
+- `src/components/ComponentName/ComponentName.tsx`
+- `src/components/ComponentName/ComponentName.module.scss`
+- `src/components/ComponentName/index.ts`
+- `src/app/test-components/component-name/page.tsx`
+
+---
+
+## Option 3: Description Only
 
 ### When User Chooses This:
 
@@ -124,14 +201,14 @@ Which approach would you prefer?"
 
 ## Comparison
 
-| Aspect | Figma + User Story | Just Tell Me |
-|--------|-------------------|--------------|
-| **Design Source** | Figma design file | User description |
-| **Accuracy** | Pixel-perfect to Figma | Based on requirements |
-| **Speed** | Faster (design ready) | May need iteration |
-| **Design Tokens** | Extracted from Figma | Created from scratch |
-| **Documentation** | Includes Figma URL | Based on description |
-| **Best For** | Designed components | Quick prototypes, simple components |
+| Aspect | Figma Design | Reference Website | Description Only |
+|--------|-------------|-------------------|------------------|
+| **Design Source** | Figma design file | Existing website | User description |
+| **Accuracy** | Pixel-perfect to Figma | Matches reference | Based on requirements |
+| **Speed** | Faster (design ready) | Fast (visual ref) | May need iteration |
+| **Design Tokens** | Extracted from Figma | Adapted from ref | Created from scratch |
+| **Documentation** | Includes Figma URL | Includes ref URL | Based on description |
+| **Best For** | Designed components | Recreating existing UIs | Quick prototypes, custom components |
 
 ---
 
@@ -143,17 +220,23 @@ Which approach would you prefer?"
 > "I need a comic page navigation component"
 
 **You:**
-> "I can help you create this component!
+> "I can help you create a new component!
 >
-> Do you want to make it from:
+> Which approach would you like to use?
 >
-> 1. Figma and User Story
->    (I'll fetch your Figma design and create a pixel-perfect component)
+> 1. Figma Design
+>    - Provide Figma URL, frame name, and user story
+>    - I'll create a pixel-perfect component from your design
 >
-> 2. Just tell me what you want
->    (Describe the component and I'll build it from scratch)
+> 2. Reference Website
+>    - Provide a URL to an existing website/component
+>    - I'll recreate it for your portfolio
 >
-> Which approach would you prefer?"
+> 3. Description Only
+>    - Just describe what you want
+>    - I'll build it from scratch based on your requirements
+>
+> Which option would you prefer?"
 
 **User:**
 > "Option 1 - I have a Figma design"
@@ -180,17 +263,23 @@ Which approach would you prefer?"
 > "I need a comic zoom control"
 
 **You:**
-> "I can help you create this component!
+> "I can help you create a new component!
 >
-> Do you want to make it from:
+> Which approach would you like to use?
 >
-> 1. Figma and User Story
->    (I'll fetch your Figma design and create a pixel-perfect component)
+> 1. Figma Design
+>    - Provide Figma URL, frame name, and user story
+>    - I'll create a pixel-perfect component from your design
 >
-> 2. Just tell me what you want
->    (Describe the component and I'll build it from scratch)
+> 2. Reference Website
+>    - Provide a URL to an existing website/component
+>    - I'll recreate it for your portfolio
 >
-> Which approach would you prefer?"
+> 3. Description Only
+>    - Just describe what you want
+>    - I'll build it from scratch based on your requirements
+>
+> Which option would you prefer?"
 
 **User:**
 > "Option 2 - I don't have a design yet"
@@ -253,11 +342,12 @@ Which approach would you prefer?"
 
 **This workflow gives users flexibility while maintaining quality:**
 
-- **Option 1 (Figma):** Design-first, pixel-perfect, traceability
-- **Option 2 (Description):** Fast, flexible, iterative
+- **Option 1 (Figma):** Design-first, pixel-perfect, full traceability to design file
+- **Option 2 (Reference Website):** Fast recreation from existing examples, visual reference
+- **Option 3 (Description):** Flexible, iterative, custom requirements
 
-**Both approaches result in high-quality, well-documented components that follow best practices.**
+**All approaches result in high-quality, well-documented components that follow best practices.**
 
 ---
 
-**REMEMBER: ALWAYS ask the user to choose. Never assume.**
+**REMEMBER: ALWAYS present all 3 options. ALWAYS ask the user to choose. Never assume.**
